@@ -20,13 +20,15 @@ import { UsersService } from './services/users.service';
 import { AuthService } from './services/auth.service';
 
 import { environment } from 'src/environments/environment';
+import { WordScrambleComponent } from './word-scramble/word-scramble.component';
 
 
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: NavbarComponent, pathMatch: 'full' },
   { path: 'forgotpassword', component: ForgotPasswordComponent}, 
   { path: 'profile', component: DisplayUserComponent },
+  { path: 'wordScramble', component: WordScrambleComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     ForgotPasswordComponent, 
     DisplayUserComponent, 
     PageNotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    WordScrambleComponent
   ],
   imports: [
     BrowserModule,
