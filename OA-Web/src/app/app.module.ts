@@ -1,15 +1,18 @@
+import { AppRoutingModule } from './app-routing.module';
 //Components
 import { DisplayUserComponent } from './display-user/display-user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppComponent } from './app.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { WordScrambleComponent } from './word-scramble/word-scramble.component';
+import { CreateuserComponent } from './createuser/createuser.component';
+import { LoginComponent } from './login/login.component';
 
 //Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
@@ -20,17 +23,6 @@ import { UsersService } from './services/users.service';
 import { AuthService } from './services/auth.service';
 
 import { environment } from 'src/environments/environment';
-import { WordScrambleComponent } from './word-scramble/word-scramble.component';
-
-
-
-const appRoutes: Routes = [
-  { path: '', component: NavbarComponent, pathMatch: 'full' },
-  { path: 'forgotpassword', component: ForgotPasswordComponent}, 
-  { path: 'profile', component: DisplayUserComponent },
-  { path: 'wordScramble', component: WordScrambleComponent},
-  { path: '**', component: PageNotFoundComponent }
-];
 
 @NgModule({
   declarations: [
@@ -39,7 +31,9 @@ const appRoutes: Routes = [
     DisplayUserComponent, 
     PageNotFoundComponent,
     NavbarComponent,
-    WordScrambleComponent
+    WordScrambleComponent,
+    CreateuserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +42,8 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     FormsModule,
     AngularFireAuthModule,
-    RouterModule.forRoot(appRoutes),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     UsersService,

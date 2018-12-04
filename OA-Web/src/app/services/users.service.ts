@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { Observable } from 'rxjs';
 export class UsersService {
   constructor(private db: AngularFireDatabase) { }
   users: Observable <any[]>;
+  user = false;
   getUser(userID: string){
     this.users = this.db.list('/UsersInfo/'+ userID).valueChanges();
     this.users.subscribe(val => console.log(val));
@@ -15,4 +17,11 @@ export class UsersService {
     //also maybe make more functions to retrieve one piece fo information about the user like getFirst,getLast,getEmail...
     return this.users;
   }
+  checkLoggedIn(){
+    firebase.auth().onAuthStateChanged(function(user) {
+      return this.user;
+    });
+    return this.user;
+  }
 }
+

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./display-user.component.css']
 })
 export class DisplayUserComponent implements OnInit {
-  constructor(private retrievedUser: UsersService){}
+  constructor(private userService: UsersService){}
   user: Observable <any[]>;
   //usersList: AngularFireList<any>;
   /*constructor(db: AngularFireDatabase, retrieveUser: UsersService) {
@@ -20,7 +20,7 @@ export class DisplayUserComponent implements OnInit {
   */
   uId = "";
   retrieveUser(){
-    this.user = this.retrievedUser.getUser(this.uId);
+    this.user = this.userService.getUser(this.uId);
   }
   ngOnInit() {
   }
