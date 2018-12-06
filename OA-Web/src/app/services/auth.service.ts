@@ -11,7 +11,19 @@ export class AuthService {
       .then(() => console.log("email sent"))
       .catch((error) => console.log(error))
   }
+  /*
   helloWorld(){
     return "Hello World";
+  }
+  */
+  login(email,password){
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  }
+
+  checkLoggedIn(){
+    firebase.auth().onAuthStateChanged(function(user) {
+      return this.user;
+    });
+    return false;
   }
 }

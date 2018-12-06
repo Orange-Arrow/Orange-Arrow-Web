@@ -1,4 +1,3 @@
-import { AppRoutingModule } from './app-routing.module';
 //Components
 import { DisplayUserComponent } from './display-user/display-user.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -8,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { WordScrambleComponent } from './word-scramble/word-scramble.component';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 //Modules
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +17,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AlertModule } from 'ngx-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
 
 //Services
 import { UsersService } from './services/users.service';
@@ -33,7 +34,8 @@ import { environment } from 'src/environments/environment';
     NavbarComponent,
     WordScrambleComponent,
     CreateuserComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 
@@ -7,31 +8,31 @@ import * as firebase from 'firebase';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  constructor(private authService : AuthService) { }
 
   ngOnInit() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-      
-      document.getElementById("user_div").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
-      
-      var user = firebase.auth().currentUser;
-      
-      if(user != null){
-        
-        var email_id = user.email;
-        var email_verified = user.emailVerified;
-        document.getElementById("user_para").innerHTML = "Welcome: " + email_id;
-      }
-      } else {
-        // No user is signed in.
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "block";
-      }
-    });
+    //triggers either the login or logout div to be displayed via the *ngIf directive in html file
+    var logged = false; //this.authService.checkLoggedIn();
   }
-
+  email = "";
+  password = "";
+  login(){
+    console.log(this.email + " " + this.password);    
+    /*Moved to authService
+    firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      
+      window.alert("Error: " + errorMessage);
+      // ...
+    });*/
+    
+    //Uncomment when db connection works
+    //this.authService.login(this.email,this.password);
+  }
+  logout(){
+    //Uncomment when db connection works
+    //firebase.auth().signOut();    
+  }
 }

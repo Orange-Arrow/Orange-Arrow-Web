@@ -1,5 +1,6 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createuser',
@@ -8,15 +9,15 @@ import { UsersService } from './../services/users.service';
 })
 export class CreateuserComponent implements OnInit {
   loggedIn = false;
-  constructor(private userService: UsersService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    if( this.userService.checkLoggedIn()){
-      //user is logged in, need to redirect the user to a different page
+    var logged = true; //this.authService.checkLoggedIn();
+    if( logged ){
+      this.router.navigate(['profile']);
+      //user is logged in, need to redirect the user to a different page, possibly their profile 
+      //or just notify they already have an account and are logged in
     }
-
-
-
   }
 
 }

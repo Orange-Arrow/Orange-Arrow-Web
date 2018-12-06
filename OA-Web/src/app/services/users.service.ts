@@ -17,11 +17,6 @@ export class UsersService {
     //also maybe make more functions to retrieve one piece fo information about the user like getFirst,getLast,getEmail...
     return this.users;
   }
-  checkLoggedIn(){
-    firebase.auth().onAuthStateChanged(function(user) {
-      return this.user;
-    });
-    return this.user;
-  }
+  
 }
 
