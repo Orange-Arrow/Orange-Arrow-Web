@@ -13,8 +13,8 @@ export class ForgotPasswordComponent{
   email="";
   resetPassword(){
     //console.log(this.auth.helloWorld());
-    //console.log(this.email);
-    this.auth.resetPassword(this.email);
+    console.log(this.email);
+    //this.auth.resetPassword(this.email);
   }
   
 }

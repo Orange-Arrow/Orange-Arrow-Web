@@ -6,25 +6,40 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <!--Logged In Links-->
+      <li *ngIf = "loggedIn == true" class="nav-item">
+        <a class="nav-link" routerLink= "trivia">Trivia <span class="sr-only"></span></a>
+      </li>
+      <li *ngIf = "loggedIn == true" class="nav-item">
+        <a class="nav-link" routerLink= "name" >Name That Athlete<span class="sr-only"></span></a>
+      </li>
+      <li *ngIf = "loggedIn == true" class="nav-item">
+        <a class="nav-link" routerLink = "wordscramble">Word Scramble<span class="sr-only"></span></a>
+      </li>
+      <li *ngIf = "loggedIn == true" class="nav-item">
+          <a class="nav-link" routerLink = "profile">Profile<span class="sr-only"></span></a>
+      </li>
+      <li *ngIf = "loggedIn == true" class="nav-item">
+        <a class="nav-link" routerLink = "">Logout<span class="sr-only"></span></a>
+      </li>
+    
+      <!--Logged Out Links-->
+      <li *ngIf = "loggedIn == false" class="nav-item">
+        <a class="nav-link" routerLink = "login">Login<span class="sr-only"></span></a>
+      </li>
+
+      <!--Always Displayed Links-->
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink= "trivia">Trivia <span class="sr-only"></span></a>
+          <a class="nav-link" routerLink = "highscores">Highscores<span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" >Name That Athlete<span class="sr-only"></span></a>
+          <a class="nav-link" routerLink = "about">About<span class="sr-only"></span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink = "wordscramble">Word Scramble<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink = "login">Login<span class="sr-only"></span></a>
-      </li>
-      
+      <!--
       <div class="btn-group" dropdown>
-        <!--
         <button dropdownToggle type="button" class="btn dropdown-toggle">
         about...   <span class="caret"></span>
         </button>
-        -->
         <ul *dropdownMenu class="dropdown-menu" role="menu">
           <li role="menuitem"><a class="dropdown-item" href="#">Profile</a></li>
           <li role="menuitem"><a class="dropdown-item" href="#">Your Ranking</a></li>
@@ -34,7 +49,7 @@
           </li>
         </ul>
       </div>
-
+      -->
     </ul>
     <!--
     <form class="form-inline my-2 my-lg-0">

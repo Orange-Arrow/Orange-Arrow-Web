@@ -8,8 +8,12 @@
     <input autofocus="autofocus" type="email" placeholder="Email..." id="email_field" [(ngModel)] = "email" />
     <input type="password" placeholder="Password..." id="password_field " [(ngModel)] = "password"/>
     <button class="btn" (click)="login()">Login to Account</button>
+    <div>
+        <button class="btn" routerLink= "/forgotpassword">Forgot Password</button>
+        <button class="btn" routerLink= "/newuser">Register</button>
+    </div>
   </div>
-  <div *ngIf = "logged" id="user_div" class="loggedin-div">
+  <div *ngIf = "logged" class="loggedin-div">
     <h3 id="user_para">Welcome</h3>
     <button class="btn" (click) ="logout()">Logout</button>
     <button onclick="send_verification()">Send Verification</button>

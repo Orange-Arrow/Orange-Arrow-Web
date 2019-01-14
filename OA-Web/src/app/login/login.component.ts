@@ -1,6 +1,5 @@
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +8,10 @@ import * as firebase from 'firebase';
 })
 export class LoginComponent implements OnInit {
   constructor(private authService : AuthService) { }
-
+  public logged;
   ngOnInit() {
     //triggers either the login or logout div to be displayed via the *ngIf directive in html file
-    var logged = false; //this.authService.checkLoggedIn();
+    this.logged = false; //this.logged = this.authService.checkLoggedIn();
   }
   email = "";
   password = "";
